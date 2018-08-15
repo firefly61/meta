@@ -1,0 +1,14 @@
+<nz-form-item [formGroup]="form">
+  <nz-form-label [attr.for]="data.key">{{data.label}}</nz-form-label>
+  <nz-form-control [ngSwitch]="data.controlType">
+    <input nz-input *ngSwitchCase="'textbox'" [formControlName]="data.key"
+           [id]="data.key" [type]="data.type" placeholder="{{data.placeholder}}">
+
+    <nz-select [id]="data.key" *ngSwitchCase="'dropdown'" [formControlName]="data.key"  [ngModel]="data.selected">
+      <nz-option *ngFor="let opt of data.options" nzLabel="{{opt.value}}" nzValue="{{opt.key}}"></nz-option>
+    </nz-select>
+
+    <nz-form-explain *ngIf="!isValid">{{data.label}} is required</nz-form-explain>
+  </nz-form-control>
+
+</nz-form-item>

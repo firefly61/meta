@@ -1,0 +1,16 @@
+<div style="padding: 20px 50px;">
+  <form nz-form [nzLayout]="inline" (ngSubmit)="onSubmit()" [formGroup]="form">
+
+    <div *ngFor="let data of datas" class="form-row">
+      <app-util [data]="data" [form]="form"></app-util>
+    </div>
+
+    <div>
+      <button nz-button nzType="primary">查询</button>
+    </div>
+  </form>
+
+  <div *ngIf="payLoad" class="form-row">
+    <strong>查询数据：</strong><br>{{payLoad}}
+  </div>
+</div>

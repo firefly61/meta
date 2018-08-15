@@ -1,0 +1,38 @@
+
+    <section class="action">
+      <i class="iconfont icon-table"></i>
+      <form nz-form [nzLayout]="'inline'" [formGroup]="validateForm" (ngSubmit)="addHeader()">
+        <nz-form-item>
+          <nz-form-control>
+            <nz-input-group>
+              <input formControlName="tableHeader" [(ngModel)]="head" nz-input placeholder="tableHeader">
+            </nz-input-group>
+            <nz-form-explain *ngIf="validateForm.get('tableHeader').dirty && validateForm.get('tableHeader').errors">Please input table header!</nz-form-explain>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control>
+            <button nz-button nzType="primary" [disabled]="!validateForm.valid">Add</button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </section>
+
+    <nz-table #basicTable [nzData]="dataSet">
+      <thead>
+      <tr>
+        <th *ngFor="let data of tableHead;">{{data.name}}<a (click)="del(data.name)">删除</a></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td *ngFor="let data of basicTable.data"><input nz-input [ngModel]="data.name"></td>
+        <!--<td>
+          <a>Action 一 {{data.name}}</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a>Delete</a>
+        </td>-->
+      </tr>
+      </tbody>
+    </nz-table>
+    <button nz-button nzType="primary" *ngIf="basicTable.data.length>0" routerLink="result">预览</button>
