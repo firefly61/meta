@@ -45,6 +45,12 @@ export class ResultComponent implements OnInit {
             type: 'String',
             hide: false,
             order: 3
+          }, {
+            name: 'action',
+            title: '操作',
+            type: 'String',
+            hide: false,
+            order: 4
           }
         ]
       },
@@ -54,27 +60,28 @@ export class ResultComponent implements OnInit {
         pageSize: 20,
         result: [
           {
-            id: 3344,
-            name: 'tester',
-            mobile: '13426757899',
+            id: 3341,
+            name: 'tester1',
+            mobile: '13426757891',
+            gender: 1
+          },
+          {
+            id: 3342,
+            name: 'tester2',
+            mobile: '13426757892',
             gender: 2
           },
           {
-            id: 3344,
-            name: 'tester',
-            mobile: '13426757899',
-            gender: 2
+            id: 3343,
+            name: 'tester3',
+            mobile: '13426757893',
+            gender: 1,
+            action: '删除'
           },
           {
             id: 3344,
-            name: 'tester',
-            mobile: '13426757899',
-            gender: 2
-          },
-          {
-            id: 3344,
-            name: 'tester',
-            mobile: '13426757899',
+            name: 'tester4',
+            mobile: '13426757894',
             gender: 2
           }
         ]
